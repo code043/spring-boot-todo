@@ -10,8 +10,11 @@ import com.code043.todolist.repository.TodoRepository;
 @Service
 public class TodoService {
   private TodoRepository todoRepository;
-
- public List<Todo> create(Todo todo){
+  
+ public TodoService(TodoRepository todoRepository) {
+    this.todoRepository = todoRepository;
+  }
+public List<Todo> create(Todo todo){
   todoRepository.save(todo);
   return list();
  }
